@@ -1,0 +1,400 @@
+/* ==========================
+   Google Font
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#05060b;
+    color:white;
+    overflow-x:hidden;
+    min-height:100vh;
+    position:relative;
+}
+
+/* ==========================
+   Animated Background
+========================== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(128,0,255,.28), transparent 35%),
+        radial-gradient(circle at 80% 30%, rgba(0,183,255,.20), transparent 35%),
+        radial-gradient(circle at 50% 90%, rgba(255,0,140,.15), transparent 40%);
+    animation:moveGradient 16s ease infinite alternate;
+    z-index:-3;
+}
+
+@keyframes moveGradient{
+
+0%{
+transform:scale(1) rotate(0deg);
+}
+
+100%{
+transform:scale(1.3) rotate(12deg);
+}
+
+}
+
+/* ==========================
+   Floating Particles
+========================== */
+
+#particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:-2;
+}
+
+.particle{
+    position:absolute;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:white;
+    opacity:.25;
+    animation:float linear infinite;
+}
+
+@keyframes float{
+
+from{
+transform:translateY(100vh);
+}
+
+to{
+transform:translateY(-120px);
+}
+
+}
+
+/* ==========================
+   Header
+========================== */
+
+header{
+    text-align:center;
+    padding:80px 20px 50px;
+}
+
+header h1{
+
+font-size:68px;
+
+background:linear-gradient(
+90deg,
+#ff61d8,
+#7f5cff,
+#61c8ff
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+letter-spacing:2px;
+
+animation:glow 3s infinite alternate;
+
+}
+
+@keyframes glow{
+
+from{
+filter:drop-shadow(0 0 8px #8844ff);
+}
+
+to{
+filter:drop-shadow(0 0 30px #44d7ff);
+}
+
+}
+
+header p{
+
+margin-top:18px;
+
+color:#cfcfcf;
+
+font-size:18px;
+
+max-width:700px;
+
+margin-inline:auto;
+
+line-height:1.7;
+
+}
+
+/* ==========================
+   Cards Grid
+========================== */
+
+.flowers{
+
+width:min(1300px,92%);
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:35px;
+
+padding-bottom:80px;
+
+}
+
+/* ==========================
+   Flower Card
+========================== */
+
+.flower-card{
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:26px;
+
+overflow:hidden;
+
+backdrop-filter:blur(15px);
+
+transition:.4s;
+
+box-shadow:
+
+0 10px 35px rgba(0,0,0,.35);
+
+}
+
+.flower-card:hover{
+
+transform:
+translateY(-12px)
+scale(1.02);
+
+box-shadow:
+
+0 0 25px rgba(125,80,255,.45),
+
+0 20px 45px rgba(0,0,0,.5);
+
+}
+
+/* ==========================
+   Image
+========================== */
+
+.flower-card img{
+
+width:100%;
+
+height:250px;
+
+object-fit:cover;
+
+transition:.5s;
+
+}
+
+.flower-card:hover img{
+
+transform:scale(1.08);
+
+}
+
+/* ==========================
+   Card Content
+========================== */
+
+.card-content{
+
+padding:24px;
+
+}
+
+.card-content h2{
+
+font-size:30px;
+
+margin-bottom:8px;
+
+}
+
+.small{
+
+color:#bbbbbb;
+
+margin-bottom:20px;
+
+}
+
+/* ==========================
+   Button
+========================== */
+
+.learn-btn{
+
+padding:13px 30px;
+
+border:none;
+
+border-radius:999px;
+
+background:linear-gradient(
+135deg,
+#8a2be2,
+#3b82f6
+);
+
+color:white;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.35s;
+
+}
+
+.learn-btn:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+
+0 0 20px #8a2be2,
+
+0 0 40px #3b82f6;
+
+}
+
+/* ==========================
+   Hidden Info
+========================== */
+
+.info{
+
+max-height:0;
+
+overflow:hidden;
+
+transition:.55s ease;
+
+opacity:0;
+
+}
+
+.flower-card.active .info{
+
+max-height:500px;
+
+opacity:1;
+
+margin-top:25px;
+
+}
+
+.info h3{
+
+margin-bottom:12px;
+
+font-size:22px;
+
+color:#7bd5ff;
+
+}
+
+.info p{
+
+line-height:1.8;
+
+color:#dddddd;
+
+}
+
+/* ==========================
+   Scrollbar
+========================== */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#6d4cff;
+
+border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#8a6cff;
+
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media(max-width:700px){
+
+header h1{
+
+font-size:46px;
+
+}
+
+header p{
+
+font-size:16px;
+
+}
+
+.flowers{
+
+grid-template-columns:1fr;
+
+}
+
+.card-content h2{
+
+font-size:24px;
+
+}
+
+.learn-btn{
+
+width:100%;
+
+}
+
+}
